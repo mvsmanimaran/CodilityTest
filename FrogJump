@@ -1,0 +1,11 @@
+//Frog jump
+	public int frogJumpSolution(int X, int Y, int D) {
+		int jump = 1;
+		while((X + (D * jump)) <= Y) {
+			jump++;
+		}
+		return jump;
+	}
+	
+  
+  System.out.println(obj.frogJumpSolution(10,85,30));
