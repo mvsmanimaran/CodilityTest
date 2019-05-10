@@ -1,0 +1,12 @@
+public int[] cyclicRotationSolution(int[] a, int k) {
+		int[] res = new int[a.length];
+		int size = a.length;
+		for(int i=0;  i<size; i++ ) {
+			res[(i + k) % size] = a[i];
+		}
+		return res;
+	}
+  
+  int[] a = {-3, 8, 9, -7, 6} ;
+	int k = 3;
+	System.out.println(Arrays.toString(obj.cyclicRotationSolution(a, k)));
