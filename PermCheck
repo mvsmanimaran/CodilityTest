@@ -1,0 +1,22 @@
+//Permutation Check
+	public int permutationCheckSolution(int[] A) {
+		int size = A.length;
+		int permuStartVal = A[0];
+		long permuStartValSum = 0;
+		while(permuStartVal != 0) {
+			permuStartValSum += permuStartVal;
+			permuStartVal --;
+		}
+		for(int i=0; i<size; i++) {
+			permuStartValSum -= A[i];
+		}
+		
+		if(permuStartValSum == 0) 
+			return 1;
+		else
+			return 0;
+	}
+  
+  
+  int[] d = {4,1,3,2};
+	System.out.println("Permutation Check: "+obj.permutationCheckSolution(d));
