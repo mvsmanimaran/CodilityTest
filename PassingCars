@@ -1,0 +1,25 @@
+//PassingCars
+    /**
+     * Imagine array 0..N
+     * Take element X (iterate from 0 to Nth element)
+     * If value of element X is 0 then count how many 1 elements it has on the right
+     * If value of element X is 1 then count how many 0 elements it has on left
+     * Repeat for next X
+     * Sum up and divide by 2 (cos it takes 2 cars to pass each other), that's the answer.
+     * In case with 0 1 0 1 1 we have 3+1+2+2+2 = 10. Divide by 2 = 5 passings.
+     */
+    public int passingCarsSolution(int[] A) {
+        int zeroesCount = 0, count = 0;
+
+        for (int i = 0; i < A.length; i++){
+            if (A[i] == 0) zeroesCount++;
+            if (A[i] == 1) count += zeroesCount;
+            
+            if (count > 1000000000) return -1;
+        }
+        return count;
+    }
+    
+    
+    int[] l = {0, 1, 0, 1, 1};
+		System.out.println("Passing Cars : "+obj.passingCarsSolution(l));
