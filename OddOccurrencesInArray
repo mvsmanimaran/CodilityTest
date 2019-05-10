@@ -1,0 +1,30 @@
+//Odd-Occurrences-Array
+	public String oddOccurrencesArraySolution(int[] A) {
+        HashMap<Integer,Integer> occurs = new HashMap<>();
+        for(int i=0;i<A.length;i++){
+           if(occurs.containsKey(A[i]) && occurs.get(A[i]) == 1){
+                occurs.remove(A[i]);  
+            }else{
+                occurs.put(A[i],1);
+            }
+        }
+        String res =  "";
+        for(int key : occurs.keySet()){
+        	res += key +",";    
+        }
+        
+        //bitwise XOR operator
+        int solution = 0;
+        for (int value: A)
+          solution ^= value;
+        System.out.println(solution);
+        
+        for (int value: A)
+            solution &= value;
+          System.out.println(solution);
+        
+        return res.substring(0, res.length()-1);
+    }
+    
+    int[] b = {3,9,3,9,9,7,9};
+		System.out.println(obj.oddOccurrencesArraySolution(b));
