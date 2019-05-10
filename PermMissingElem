@@ -1,0 +1,33 @@
+//Perm Missing Element
+	public String permMissingElementSolution(int[] C) {
+		Arrays.sort(C);
+		
+		int[] A = {10,12,13,15,16,19,18,22};
+		Arrays.sort(A);
+		int size = A.length;
+		
+		String missingVal = "";
+		for(int i=1; i<size; i++) {
+			if(A[i] - A[i-1] != 1) {
+				//Missing more than one value
+				int position = 1;
+				while(A[i-1] != (A[i]-position)) {
+					missingVal += (A[i]-position)+ ",";
+					position++;
+				}
+			}
+		}
+		
+		System.out.println(missingVal.substring(0, missingVal.length()-1));
+		size = C.length;
+		//n*(n+1)/2
+		long sum = C[size-1] * (C[size-1] +1)/2;
+		for(int i=0; i<size; i++) {
+			sum -= C[i];
+		}
+		return ""+sum;
+	}
+
+//------
+int[] c = {1,2,3,5};
+System.out.println("Perm Missing Element: "+ obj.permMissingElementSolution(c));
