@@ -1,0 +1,21 @@
+public class Test {
+	//Binary Gap
+	public int binaryGapSolution(int val) {
+		int max =0, gap = 0;
+		
+		while(val != 0) {
+			if((val & 1) == 0) {
+				gap++;
+				max = Math.max(max, gap);
+			}else
+				gap = 0;
+			
+			val >>>= 1;
+		}
+		return max;
+	}
+  public static void main(String[] args) {
+		Test obj = new Test();
+		System.out.println(obj.binaryGapSolution(1041));
+  }
+}
